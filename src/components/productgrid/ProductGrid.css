@@ -1,0 +1,53 @@
+.product-grid {
+  margin-top: 25px;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: 240px;
+}
+
+.product-grid p {
+  margin: 0;
+}
+
+.card {
+  display: flex;
+  background-color: white;
+  text-align: center;
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  transition: all .5s;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+  transform: translateY(-1px);
+}
+
+.card-content {
+  padding: 10px;
+  display: inherit;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.card-image {
+  width: 120px;
+  height: 120px;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.card-brand {
+  font-size: 1.1rem;
+  color: darkgray;
+}
