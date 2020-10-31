@@ -1,9 +1,91 @@
 .product-details {
+  box-sizing: border-box;
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
   flex-basis: 350px;
-  height: 100%;
+  height: auto;
   background-color: white;
   margin-right: 50px;
   box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem;
+}
+
+.pd-content {
+  box-sizing: border-box;
+  display: flex;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pd-img {
+  width: 150px;
+  height: 150px;
+}
+
+.pd-content h3,
+.pd-content h4 {
+  margin: 0;
+}
+
+.pd-content h4 {
+  color: darkgray;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.tag-grid {
+  width: 100%;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  padding: 15px 20px 0px;
+  margin: 20px 0;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-tag {
+  display: flex;
+  text-align: center;
+  padding: 5px 8px;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+  font-weight: 200;
+  font-size: .9rem;
+}
+
+.pd-nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.pd-icon {
+  font-size: 1.3rem;
+  margin-right: 15px;
+}
+
+.pd-nav div {
+  width: 100%;
+  cursor: pointer;
+}
+
+.pd-nav p {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.back-arr {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  cursor: pointer;
 }

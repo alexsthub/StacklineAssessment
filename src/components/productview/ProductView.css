@@ -1,0 +1,13 @@
+.product-view {
+  margin-top: 40px;
+  padding: 20px;
+  display: flex;
+  height: 100%;
+}
+
+.product-right {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}

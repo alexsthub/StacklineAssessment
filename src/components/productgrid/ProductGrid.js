@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./ProductGrid.css";
+import "../../App.css";
 
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -14,11 +15,7 @@ class ProductGrid extends Component {
   renderProducts = () => {
     const items = this.props.items.map((item) => {
       return (
-        <Link
-          key={item.id}
-          to={`/product/${item.id}`}
-          style={{ textDecoration: "none", color: "black" }}
-        >
+        <Link key={item.id} to={`/product/${item.id}`} className="link-clear">
           <div className="card">
             <div className="card-content">
               <img className="card-image" src={item.image} alt={item.title} />

@@ -1,21 +1,40 @@
 import React, { Component } from "react";
+import "./ProductView.css";
+import "../../App.css";
+
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { fetchProduct } from "../../actions/ProductActions";
 
 import ProductDetails from "../productdetails/ProductDetails";
 import ProductGraph from "../productgraph/ProductGraph";
-import ProdutSales from "../productsales/ProductSales";
+import ProductSales from "../productsales/ProductSales";
 
-export default class ProductView extends Component {
+class ProductView extends Component {
+  componentDidMount = () => {
+    this.props.fetchProduct(this.props.match.params.id);
+  };
+
   render() {
-    const id = this.props.match.params.id;
-    console.log(id);
-
     return (
-      <div
-        style={{ marginTop: 50, padding: 20, display: "flex", height: "100%" }}
-      >
-        <ProductDetails />
-        <div style={{ display: "flex", flex: 1 }}>There</div>
+      <div className="product-view">
+        <ProductDetails item={this.props.item} />
+        <div className="product-right">
+          {/* <ProductGraph item={this.props.item} /> */}
+          <ProductSales item={this.props.item} />
+        </div>
       </div>
     );
   }
 }
+
+ProductView.propTypes = {
+  item: PropTypes.object.isRequired,
+  fetchProduct: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  item: state.items.item,
+});
+
+export default connect(mapStateToProps, { fetchProduct })(ProductView);

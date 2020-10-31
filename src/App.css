@@ -13,3 +13,25 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.fac {
+  align-items: center;
+}
+
+.fjc {
+  justify-content: center;
+}
+
+.link-clear {
+  text-decoration: none;
+  color: black;
+}
