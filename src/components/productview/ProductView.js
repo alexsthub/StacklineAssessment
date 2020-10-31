@@ -10,6 +10,7 @@ import ProductDetails from "../productdetails/ProductDetails";
 import ProductGraph from "../productgraph/ProductGraph";
 import ProductSales from "../productsales/ProductSales";
 
+// TODO: If product does not exist, redirect
 class ProductView extends Component {
   componentDidMount = () => {
     this.props.fetchProduct(this.props.match.params.id);
@@ -20,7 +21,7 @@ class ProductView extends Component {
       <div className="product-view">
         <ProductDetails item={this.props.item} />
         <div className="product-right">
-          {/* <ProductGraph item={this.props.item} /> */}
+          <ProductGraph item={this.props.item} />
           <ProductSales item={this.props.item} />
         </div>
       </div>
