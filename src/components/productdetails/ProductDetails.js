@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./ProductDetails.css";
 import "../../App.css";
 
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,7 +13,7 @@ import {
 
 import { isEmpty } from "../../helpers/helpers";
 
-export default class ProductDetails extends Component {
+class ProductDetails extends Component {
   renderBackArrow = () => {
     return (
       <Link className="link-clear" to="/">
@@ -68,3 +69,9 @@ export default class ProductDetails extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  item: state.items.item,
+});
+
+export default connect(mapStateToProps, null)(ProductDetails);

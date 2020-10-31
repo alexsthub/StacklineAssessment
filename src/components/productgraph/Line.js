@@ -25,9 +25,11 @@ export default class Line extends React.Component {
 
     this.updateChart();
   }
+
   componentDidUpdate() {
     this.updateChart();
   }
+
   updateChart() {
     const { lineGenerator, data } = this.props;
     const line = d3.select("#line");

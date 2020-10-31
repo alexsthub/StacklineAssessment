@@ -4,11 +4,12 @@ import "./ProductGraph.css";
 import XYAxis from "./xy-axis";
 import Line from "./Line";
 
+import { connect } from "react-redux";
 import * as d3 from "d3";
 
 import { isEmpty } from "../../helpers/helpers";
 
-export default class ProductGraph extends Component {
+class ProductGraph extends Component {
   constructor(props) {
     super(props);
     this.svgContainer = React.createRef();
@@ -109,17 +110,8 @@ export default class ProductGraph extends Component {
   }
 }
 
-// const months = [
-//   "January",
-//   "February",
-//   "March",
-//   "April",
-//   "May",
-//   "June",
-//   "July",
-//   "August",
-//   "September",
-//   "October",
-//   "November",
-//   "December",
-// ];
+const mapStateToProps = (state) => ({
+  item: state.items.item,
+});
+
+export default connect(mapStateToProps, null)(ProductGraph);

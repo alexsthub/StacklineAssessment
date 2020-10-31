@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import "./ProductSales.css";
-
+import { connect } from "react-redux";
 import { isEmpty, numToString, formatDate } from "../../helpers/helpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-export default class ProductSales extends Component {
+class ProductSales extends Component {
   constructor(props) {
     super(props);
-    this.state = { sortedColumn: { index: 0, asc: true } };
+    this.state = { sortedColumn: { index: 0, asc: false } };
   }
 
   handleTableSortChange = (sortIndex) => {
@@ -83,10 +83,10 @@ const tableHeaders = [
 
 class TableHeader extends Component {
   render() {
-    let icon = faChevronDown;
+    let icon = faChevronUp;
     let iconStyle = { color: "lightgray" };
     if (this.props.sortColumn) {
-      icon = this.props.asc ? faChevronDown : faChevronUp;
+      icon = this.props.asc ? faChevronUp : faChevronDown;
       iconStyle.color = "black";
     }
 
@@ -104,3 +104,9 @@ class TableHeader extends Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  item: state.items.item,
+});
+
+export default connect(mapStateToProps, null)(ProductSales);

@@ -24,10 +24,10 @@ class ProductView extends Component {
 
     return (
       <div className="product-view">
-        <ProductDetails item={this.props.item} />
+        <ProductDetails />
         <div className="product-right">
-          <ProductGraph item={this.props.item} />
-          <ProductSales item={this.props.item} />
+          <ProductGraph />
+          <ProductSales />
         </div>
       </div>
     );

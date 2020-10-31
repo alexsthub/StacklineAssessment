@@ -11,6 +11,10 @@ class Axis extends React.Component {
     this.renderAxis();
   }
 
+  componentDidUpdate() {
+    this.renderAxis();
+  }
+
   renderAxis() {
     const { scale, orient, ticks } = this.props;
     const node = this.ref.current;
