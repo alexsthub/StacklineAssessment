@@ -8,18 +8,32 @@ import * as d3 from "d3";
 
 import { isEmpty } from "../../helpers/helpers";
 
-// TODO: Get the width
-// TODO: Tooltips
 export default class ProductGraph extends Component {
   constructor(props) {
     super(props);
     this.svgContainer = React.createRef();
-    this.state = { svgWidth: null };
+    this.state = { svgWidth: null, loading: true };
   }
 
   componentDidMount = () => {
-    // const width = this.svgContainer.current.offsetWidth;
-    // this.setState({ svgWidth: 1087 });
+    const width = this.svgContainer.current.offsetWidth;
+    if (width === 0) {
+      setTimeout(() => {
+        this.handleResize();
+      }, 50);
+    } else {
+      this.setState({ svgWidth: width, loading: false });
+    }
+    window.addEventListener("resize", this.handleResize);
+  };
+
+  componentWillUnmount = () => {
+    window.removeEventListener("resize", this.handleResize);
+  };
+
+  handleResize = () => {
+    const width = this.svgContainer.current.offsetWidth;
+    this.setState({ svgWidth: width, loading: false });
   };
 
   renderSvg = () => {
@@ -31,7 +45,7 @@ export default class ProductGraph extends Component {
       bottom: 25,
       left: 25,
     };
-    const width = 1087 - margins.left - margins.right;
+    const width = this.state.svgWidth - margins.left - margins.right;
     const height = 500 - margins.top - margins.bottom;
     const ticks = 5;
 
@@ -65,6 +79,7 @@ export default class ProductGraph extends Component {
       >
         <g transform={`translate(${margins.left}, ${margins.top})`}>
           <XYAxis {...{ xScale, height, ticks }} />
+
           <Line
             data={data}
             xScale={xScale}
@@ -81,7 +96,7 @@ export default class ProductGraph extends Component {
 
   render() {
     let svg;
-    if (!isEmpty(this.props.item)) {
+    if (!isEmpty(this.props.item) && !this.state.loading) {
       svg = this.renderSvg();
     }
 

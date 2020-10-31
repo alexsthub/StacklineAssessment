@@ -24,19 +24,20 @@ export default class ProductDetails extends Component {
   };
 
   renderProductTags = () => {
-    const tags = this.props.item.tags.map((tag) => {
-      return (
-        <div key={tag} className="product-tag">
-          {tag}
-        </div>
-      );
-    });
+    const { item } = this.props;
+    const tags = !isEmpty(item)
+      ? item.tags.map((tag) => {
+          return (
+            <div key={tag} className="product-tag">
+              {tag}
+            </div>
+          );
+        })
+      : null;
     return <div className="tag-grid">{tags}</div>;
   };
 
   render() {
-    if (isEmpty(this.props.item)) return null;
-
     return (
       <div className="product-details">
         {this.renderBackArrow()}
@@ -57,7 +58,7 @@ export default class ProductDetails extends Component {
               <FontAwesomeIcon icon={faHome} className="pd-icon" />
               <p>OVERVIEW</p>
             </div>
-            <div className="flex fac">
+            <div className="flex fac pd-nav-select">
               <FontAwesomeIcon icon={faChartBar} className="pd-icon" />
               <p>SALES</p>
             </div>

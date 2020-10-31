@@ -4,8 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 350px;
   min-width: 350px;
-  height: auto;
   background-color: white;
   margin-right: 50px;
   box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem;
@@ -88,4 +88,24 @@
   top: 15px;
   left: 15px;
   cursor: pointer;
+}
+
+.pd-nav div {
+  color: gray;
+}
+
+.pd-nav-select p {
+  color: black !important;
+}
+
+.pd-nav-select svg {
+  color: #8eb1bd !important;
+}
+
+@media (max-width: 1200px) {
+  .product-details {
+    margin-bottom: 40px;
+    margin-right: 0;
+  }
+
 }
