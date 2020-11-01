@@ -19,7 +19,7 @@ export default class Line extends React.Component {
       .datum(initialData)
       .attr("id", "line")
       .attr("stroke", this.props.lineColor)
-      .attr("stroke-width", 2)
+      .attr("stroke-width", 3)
       .attr("fill", "none")
       .attr("d", lineGenerator);
 
